@@ -6,7 +6,7 @@ over them. The program is intended for a take-home assignment as part of an inte
 
 ## Installation
 
-You need to have [Python](https://www.python.org/) installed for this program to work. 
+You need to have [Python **3.9**](https://www.python.org/) installed for this program to work (previous versions won't work without some tweaks; see [Observations](#observations)). 
 You also need to clone this repository:
 ```console
 git clone https://github.com/DavidMazarro/hacker-news-python-scraper.git
@@ -37,3 +37,15 @@ to type-check the project and:
 pytest
 ```
 to run the [unit tests](./src/tests/).
+
+## Observations
+### Why does this only work for Python >3.9?
+Python 3.9 introduces with [PEP 585](https://www.python.org/dev/peps/pep-0585/) built-in support for
+type hinting generics in standard collections. Because of this, the code is not supported by previous versions
+of Python; however, I believe you can do some minor changes to make this work for versions 3.5 up to 3.8 by adding
+this line:
+```python
+from typing import List
+```
+at the top of the source code files which use type annotations for `list`, and replacing
+appearances of `list` with `List` (e.g. `list[Entry]` with `List[Entry]`) in such annotations.
