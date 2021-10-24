@@ -1,6 +1,8 @@
 ![GitHub Actions badge](https://github.com/DavidMazarro/hacker-news-python-scraper/actions/workflows/python-testing.yml/badge.svg)
 # Hacker News scraper (in Python)
-This is just a basic scraper that takes the first 30 entries from the Hacker News frontpage,
+This is just a basic scraper that takes the first 30 entries from the Hacker News frontpage, makes an object model of the entries content
+and performs a couple of operations (sorting entries by title, rank, num. of comments or points and filtering by num. of words in the title)
+over them. The program is intended for a take-home assignment as part of an interview process, but can be extended in a relatively easy way.
 
 ## Installation
 
