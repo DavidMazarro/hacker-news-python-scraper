@@ -14,3 +14,11 @@ class Entry:
         self.order = order
         self.comments_num = comments_num
         self.points = points
+
+    def __str__(self) -> str:
+        entry_str: str = f"{self.order}. {self.title}"
+        if self.comments_num:
+            entry_str += f", {self.comments_num} comments"
+        if self.points:
+            entry_str += f", {self.points} points"
+        return entry_str

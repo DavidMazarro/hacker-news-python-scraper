@@ -1,5 +1,5 @@
 import requests
-from src.entry import Entry
+from entry import Entry
 from typing import Optional
 from bs4 import BeautifulSoup # type: ignore
 
