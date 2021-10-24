@@ -19,11 +19,11 @@ def test_entries_sorted_by_points_idempotency():
     sorted_by_points = scraper.sort_entries_by_field(entries, 'points')
     assert scraper.sort_entries_by_field(sorted_by_points, 'points') == sorted_by_points
     
-def test_entries_sorted_by_order_identity():
-    assert scraper.sort_entries_by_field(entries, 'title', True) == entries
+def test_entries_sorted_by_rank_identity():
+    assert scraper.sort_entries_by_field(entries, 'rank', True) == entries
 
-def test_entries_sorted_by_order_involution():
+def test_entries_sorted_by_rank_involution():
     assert scraper.sort_entries_by_field(
-        scraper.sort_entries_by_field(entries, 'title'),
+        scraper.sort_entries_by_field(entries, 'rank'),
         'title'
     ) == entries

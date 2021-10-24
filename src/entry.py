@@ -6,17 +6,17 @@ class Entry:
     def __init__(
         self,
         title: str,
-        order: int,
+        rank: int,
         comments_num: Optional[int] = None,
         points: Optional[int] = None,
     ) -> None:
         self.title = title
-        self.order = order
+        self.rank = rank
         self.comments_num = comments_num
         self.points = points
 
     def __str__(self) -> str:
-        entry_str: str = f"{self.order}. {self.title}"
+        entry_str: str = f"{self.rank}. {self.title}"
         if self.comments_num:
             entry_str += f", {self.comments_num} comments"
         if self.points:
