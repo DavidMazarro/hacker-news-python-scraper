@@ -9,11 +9,8 @@ class Entry:
         order: int,
         comments_num: Optional[int] = None,
         points: Optional[int] = None,
-    ):
+    ) -> None:
         self.title = title
         self.order = order
         self.comments_num = comments_num
         self.points = points
-
-    def puntos(self):
-        print(self.points)
