@@ -1,5 +1,5 @@
 import requests
-from entry import Entry
+from src.entry import Entry
 from typing import Optional
 from bs4 import BeautifulSoup # type: ignore
 from bs4.element import Tag # type: ignore
@@ -130,3 +130,11 @@ def sort_entries_by_field(entries: list[Entry], field_name: str, reverse: bool =
         )
     else:
         raise Exception(f"{field_name} is invalid and doesn't exist for Entry class")
+
+# Entries with more than five words in the title ordered by the number of comments first
+def entries_gr5_comment_num(entries: list[Entry]) -> list[Entry]:
+    pass
+
+# Entries with less than or equal to five words in the title ordered by points
+def entries_leq5_points(entries: list[Entry]) -> list[Entry]:
+    pass
