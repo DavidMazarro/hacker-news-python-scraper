@@ -1,7 +1,8 @@
 from typing import Optional
 
 # Note that entries in Hacker News are not required
-# to have comments or points, so the fields can be empty
+# to have comments or points, so the fields can be empty,
+# hence the Optional type for comments_num and points
 class Entry:
     def __init__(
         self,
