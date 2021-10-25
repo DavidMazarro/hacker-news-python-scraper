@@ -1,4 +1,5 @@
 ![GitHub Actions badge](https://github.com/DavidMazarro/hacker-news-python-scraper/actions/workflows/python-testing.yml/badge.svg)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 # Hacker News scraper (in Python)
 This is just a basic scraper that takes the first 30 entries from the Hacker News frontpage, makes an object model of the entries content
 and performs a couple of operations (sorting entries by title, rank, num. of comments or points and filtering by num. of words in the title)
