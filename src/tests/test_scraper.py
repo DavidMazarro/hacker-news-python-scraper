@@ -28,3 +28,8 @@ def test_entries_sorted_by_rank_involution():
         'rank',
         reverse=True
     ) == entries
+
+def test_entries_filtered_added_length_is_30():
+    entries1 = scraper.entries_gr5_comment_num(entries)
+    entries2 = scraper.entries_leq5_points(entries)
+    assert len(entries1 + entries2) == 30
