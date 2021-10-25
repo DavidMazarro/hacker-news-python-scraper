@@ -98,4 +98,35 @@ def get_points(tag_entry: Tag) -> Optional[int]:
 # The reverse argument is an optional one which returns the opposite sorting
 # (smallest to biggest, etc.)
 def sort_entries_by_field(entries: list[Entry], field_name: str, reverse: bool = False) -> list[Entry]:
-    pass
+    if field_name == "title":
+        return sorted(
+            entries, key=lambda entry: getattr(entry, "title"), reverse=reverse
+        )
+    elif field_name == "rank":
+        return sorted(
+            entries, key=lambda entry: getattr(entry, "rank"), reverse=not reverse
+        )
+    elif field_name == "comments_num":
+        return sorted(
+            entries,
+            # If the comments_num field has a value of None,
+            # the key function returns -1 to have them at the
+            # end of the sorting (None comments being less than 0 comments)
+            key=lambda entry: -1
+            if getattr(entry, "comments_num") == None
+            else getattr(entry, "comments_num"),
+            reverse=not reverse,
+        )
+    elif field_name == "points":
+        return sorted(
+            entries,
+            # If the points field has a value of None,
+            # the key function returns -1 to have them at the
+            # end of the sorting (None points being less than 0 points)
+            key=lambda entry: -1
+            if getattr(entry, "points") == None
+            else getattr(entry, "points"),
+            reverse=not reverse,
+        )
+    else:
+        raise Exception(f"{field_name} is invalid and doesn't exist for Entry class")
