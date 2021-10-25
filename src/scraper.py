@@ -98,38 +98,21 @@ def get_points(tag_entry: Tag) -> Optional[int]:
 # The reverse argument is an optional one which returns the opposite sorting
 # (smallest to biggest, etc.)
 def sort_entries_by_field(entries: list[Entry], field_name: str, reverse: bool = False) -> list[Entry]:
-    if field_name == "title":
-        return sorted(
-            entries, key=lambda entry: getattr(entry, "title"), reverse=reverse
-        )
-    elif field_name == "rank":
-        return sorted(
-            entries, key=lambda entry: getattr(entry, "rank"), reverse=not reverse
-        )
-    elif field_name == "comments_num":
-        return sorted(
-            entries,
-            # If the comments_num field has a value of None,
-            # the key function returns -1 to have them at the
-            # end of the sorting (None comments being less than 0 comments)
-            key=lambda entry: -1
-            if getattr(entry, "comments_num") == None
-            else getattr(entry, "comments_num"),
-            reverse=not reverse,
-        )
-    elif field_name == "points":
-        return sorted(
-            entries,
-            # If the points field has a value of None,
-            # the key function returns -1 to have them at the
-            # end of the sorting (None points being less than 0 points)
-            key=lambda entry: -1
-            if getattr(entry, "points") == None
-            else getattr(entry, "points"),
-            reverse=not reverse,
-        )
-    else:
-        raise Exception(f"{field_name} is invalid and doesn't exist for Entry class")
+    # All sortings that are not by title must be reversed
+    # when passed to the sorted function, since sorted returns
+    # the elements from lowest to greatest, and we want the opposite
+    if field_name != 'title':
+        reverse = not reverse
+    return sorted(
+        entries,
+        # If the some optional field (points or comments_num) has a value of None,
+        # the key function returns -1 to have them at the
+        # end of the sorting (e.g. None points being less than 0 points)
+        key=lambda entry: -1
+        if getattr(entry, field_name) == None
+        else getattr(entry, field_name),
+        reverse=reverse,
+    )
 
 # Entries with more than five words in the title ordered by the number of comments first
 def entries_gr5_comment_num(entries: list[Entry]) -> list[Entry]:
