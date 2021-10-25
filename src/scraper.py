@@ -133,8 +133,14 @@ def sort_entries_by_field(entries: list[Entry], field_name: str, reverse: bool =
 
 # Entries with more than five words in the title ordered by the number of comments first
 def entries_gr5_comment_num(entries: list[Entry]) -> list[Entry]:
-    pass
+    return sort_entries_by_field(
+        list(filter(lambda entry: len(entry.title.split()) > 5, entries)),
+        'comments_num'
+    )
 
 # Entries with less than or equal to five words in the title ordered by points
 def entries_leq5_points(entries: list[Entry]) -> list[Entry]:
-    pass
+    return sort_entries_by_field(
+        list(filter(lambda entry: len(entry.title.split()) <= 5, entries)),
+        'points'
+    )
