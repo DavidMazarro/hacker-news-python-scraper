@@ -25,5 +25,6 @@ def test_entries_sorted_by_rank_identity():
 def test_entries_sorted_by_rank_involution():
     assert scraper.sort_entries_by_field(
         scraper.sort_entries_by_field(entries, 'rank'),
-        'title'
+        'rank',
+        reverse=True
     ) == entries
