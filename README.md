@@ -38,6 +38,31 @@ pytest
 ```
 to run the [unit tests](./src/tests/).
 
+
+## Running
+The project includes the [hn-scraper.py](./hn-scraper.py) script, intended to show the scraper working.
+From within the project root folder, run the following command:
+```console
+python ./hn-scraper.py
+```
+and you will get an output similar to this:
+```console
+-- Entries with more than 5 words in title, sorted by num. of comments--
+
+19. NYT journalist hacked with Pegasus after reporting on previous hacking attempts, 278 comments, 934 points
+27. To learn a new language, read its standard library, 193 comments, 343 points
+17. Jetson One – Personal Electric Aerial Vehicle, 180 comments, 208 points
+4. WhatsApp scaled to 1B users with only 50 engineers, 145 comments, 164 points
+[...]
+
+-- Entries with less than 5 words or equal in title, sorted by points--
+
+20. Across Kazakhstan by rail, 60 comments, 162 points
+30. Signed integers are asymmetrical, 113 comments, 121 points
+21. Fun with Nano Server, 12 comments, 57 points
+22. Art Vote, 30 comments, 56 points
+```
+
 ## Observations
 ### Why does this only work for Python >3.9?
 Python 3.9 introduces with [PEP 585](https://www.python.org/dev/peps/pep-0585/) built-in support for
