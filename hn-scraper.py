@@ -1,7 +1,9 @@
-from src.scraper import scrape, sort_entries_by_field, entries_gr5_comment_num, entries_leq5_points
+from src.scraper import scrape
 from src.entry import Entry
+from src.entry_funcs import sort_entries_by_field, entries_gr5_comment_num, entries_leq5_points
 
 entries: list[Entry] = scrape("https://news.ycombinator.com/")
+
 entries1 = entries_gr5_comment_num(entries)
 entries2 = entries_leq5_points(entries)
 
