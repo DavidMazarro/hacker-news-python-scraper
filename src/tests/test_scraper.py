@@ -1,5 +1,5 @@
 import src.entry as entry
-import src.scraper as scraper
+import src.scraper as scraper # type: ignore
 
 URL = "https://news.ycombinator.com/"
 entries = scraper.scrape(URL)
